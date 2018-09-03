@@ -1,12 +1,14 @@
 1.使用Git指南
 ssh -T git@github.com
 cd /mnt/d/Scientific\ Research/Research\ Project/Bioinformatics/myGitHub/
-
-
 git add .
-git commit -m ‘first commit’ 
-git remote add origin git@github.com:Kenny9404/R-Learning.git 
+git commit -m "first commit" 
+# git remote add origin git@github.com:Kenny9404/R-Learning.git
+# git remote rm origin
+# git remote add origin git@github.com:Kenny9404/R-Learning.git
 git push -u origin master
+# git pull origin master
+# git push -u origin master
 
 2. 获取探针Series Matrix数据并做ID转换
 # source("https://bioconductor.org/biocLite.R")
