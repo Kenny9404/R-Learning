@@ -26,6 +26,7 @@ dat <- merge(eset,probe2symbol,by='probe_id')
 symbol.data <- t(sapply(split(dat,dat$symbol),function(x) colMeans(x[,2:(ncol(x)-1)])))  # 取重复探针平均值
 
 3. 获取芯片原始CEL数据并做ID转换
+# 读取数据
 library(GEOquery)
 getGEOSuppFiles("GSE55457", baseDir = "data/") ## 解压数据
 library(affy)
@@ -37,8 +38,7 @@ data <- ReadAffy(filenames = cel.files)
 sampleNames(data)
 # 质量控制
 data.qc <- qc(data) 
-plot(data.qc)
-第一列是所有样本的名称; 第二列是检测率和平均背景噪声。 第三列蓝色为比例因子，
+plot(data.qc) ## 第一列是所有样本的名称; 第二列是检测率和平均背景噪声。 第三列蓝色为比例因子，
 值（-3,3）），“圆圈”不能超过1.25，否则数据质量不好，“三角形”不能超过3，否则数据质量不好，
 bioB表明芯片测试不符合标准
 #背景矫正、标准化和汇总
