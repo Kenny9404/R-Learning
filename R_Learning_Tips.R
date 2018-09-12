@@ -125,3 +125,16 @@ symbol.data <- t(sapply(split(dat,dat$symbol),function(x) colMeans(x[,2:(ncol(x)
 # 76 GPL15380       Homo sapiens      GGHumanMethCancerPanelv1
 # 77 GPL15396       Homo sapiens                     hthgu133b
 # 78 GPL17897       Homo sapiens                     hthgu133a
+
+5.雷达图的制作
+library(devtools)
+install_github("ricardo-bion/ggradar")
+library("ggplot2")
+library("ggradar")
+mydata<-matrix(runif(40,0,1),5,8)
+rownames(mydata) <- LETTERS[1:5]
+colnames(mydata) <- c("Apple","Google","Facebook","Amozon","Tencent","Alibaba","Baidu","Twitter")
+mynewdata<-data.frame(mydata)
+Name<-c("USA","CHN","UK","RUS","JP")
+mynewdata<-data.frame(Name,mynewdata)
+ggradar(mynewdata)
