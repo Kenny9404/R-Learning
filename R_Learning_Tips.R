@@ -126,7 +126,7 @@ symbol.data <- t(sapply(split(dat,dat$symbol),function(x) colMeans(x[,2:(ncol(x)
 # 77 GPL15396       Homo sapiens                     hthgu133b
 # 78 GPL17897       Homo sapiens                     hthgu133a
 
-5.雷达图的制作
+5. 雷达图的制作
 library(devtools)
 install_github("ricardo-bion/ggradar")
 library("ggplot2")
@@ -138,3 +138,7 @@ mynewdata<-data.frame(mydata)
 Name<-c("USA","CHN","UK","RUS","JP")
 mynewdata<-data.frame(Name,mynewdata)
 ggradar(mynewdata)
+
+6. Rmarkdown中文写作解决方案
+header-includes: 
+  - \usepackage{xeCJK} 
